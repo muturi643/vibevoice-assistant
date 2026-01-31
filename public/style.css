@@ -1,0 +1,212 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* Indigo to Purple */
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --chat-bg: #ffffff;
+  --user-msg-bg: #6366f1;
+  --user-text: #ffffff;
+  --ai-msg-bg: #f3f4f6;
+  --ai-text: #1f2937;
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-gradient);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-wrapper {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  height: 85vh; /* Takes up most of the mobile screen */
+  max-height: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header Styling */
+header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.logo {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  animation: float 3s ease-in-out infinite;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.025em;
+}
+
+.badge {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Chat Window Styling */
+.chat-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar hidden for cleanliness */
+.chat-window::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-window::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+  border-radius: 10px;
+}
+
+/* Message Bubbles */
+.message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  position: relative;
+  word-wrap: break-word;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.message.user {
+  background: var(--primary-gradient);
+  color: var(--user-text);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+}
+
+.message.assistant {
+  background: var(--ai-msg-bg);
+  color: var(--ai-text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #e5e7eb;
+}
+
+.message.intro {
+  text-align: center;
+  align-self: center;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+/* Controls Area */
+.controls-area {
+  padding: 20px;
+  background: white;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+#status {
+  margin: 0 0 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-height: 1.2em; /* Prevents layout jump */
+}
+
+.mic-button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary-gradient);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -3px rgba(99, 102, 241, 0.5);
+}
+
+.mic-button:active {
+  transform: translateY(1px);
+}
+
+.mic-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* Animations */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Pulse animation for when listening (can be toggled via JS if desired) */
+.listening {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeVoice Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="container">
+      <header>
+        <div class="logo">🎙️</div>
+        <h1>VibeVoice <span class="badge">AI</span></h1>
+        <p class="subtitle">Productivity Assistant</p>
+      </header>
+      
+      <div id="chat" class="chat-window">
+        <div class="message assistant intro">
+          Hi! I'm VibeVoice. Click the mic to start managing your tasks.
+        </div>
+      </div>
+      
+      <div class="controls-area">
+        <p id="status">Ready to listen</p>
+        <button id="speakBtn" class="mic-button">
+          <span class="icon">🎤</span> Tap to Speak
+        </button>
+      </div>
+      
+      <audio id="audio" controls autoplay style="display:none"></audio>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
