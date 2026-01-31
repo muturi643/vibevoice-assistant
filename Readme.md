@@ -35,7 +35,7 @@ Built entirely with free tools and sponsor integrations (ElevenLabs for voice bo
 
 🚀 Setup & Running Locally
 
-Clone the repoBashgit clone https://github.com/your-username/vibevoice-assistant.git
+Clone the repoBashgit clone https://github.com/muturi643/vibevoice-assistant.git
 cd vibevoice-assistant
 Install dependenciesBashnpm install
 Create .env file (in the root folder)envGROQ_API_KEY=gq-your-groq-key-here   # From console.groq.com
