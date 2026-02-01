@@ -4,7 +4,7 @@
 
 A voice-first productivity assistant built for the AI Vibe Coding Hackathon. Speak naturally to add tasks, set reminders, brainstorm ideas, or ask questions — VibeVoice responds with a lifelike voice and handles English + basic Swahili phrases (perfect for Nairobi users!).
 Live Demo: [Add your deployed link here, e.g., Vercel/Netlify]
-GitHub: [your-repo-link]
+GitHub: (https://github.com/muturi643/vibevoice-assistant).
 
 🌟 Features
 
